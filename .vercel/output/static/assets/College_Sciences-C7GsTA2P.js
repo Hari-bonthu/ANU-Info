@@ -1,0 +1,1 @@
+const e="/assets/College_Arts-DwjGNRSl.jpg",s="/assets/College_Architecture-DRcNot9r.jpeg",g="/assets/College_Engineering-Ct_XqGtM.jpg",a="/assets/College_Pharma-Cww3R0NO.jpg",l="/assets/College_PhysicalEducation-BNDyIK6E.jpg",c="/assets/College_Sciences-DEtE2xCe.jpg";export{l as a,a as b,s as c,e as d,g as e,c as f};
