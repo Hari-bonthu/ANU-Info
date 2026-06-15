@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { HeroSection } from "./herosection";
+import { HeroSection } from "@/components/herosection";
 
 const bannerImages = Object.entries(
   import.meta.glob("../assets/banners/*.{jpg,jpeg,png,webp}", {
