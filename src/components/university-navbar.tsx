@@ -619,7 +619,7 @@ export function UniversityNavbar() {
                       <span
                         className="pointer-events-none absolute bottom-3 left-4 right-4 h-[2px] origin-left rounded-full transition-transform duration-200"
                         style={{
-                          backgroundColor: "var(--gold-strong)",
+                          backgroundColor: "var(--primary)",
                           transform: active ? "scaleX(1)" : "scaleX(0)",
                         }}
                       />
@@ -802,7 +802,7 @@ export function UniversityNavbar() {
                       <div className="col-span-3">
                         <div
                           className="text-[11px] font-semibold tracking-[0.2em]"
-                          style={{ color: "var(--gold-strong)" }}
+                          style={{ color: "var(--gold)" }}
                         >
                           {activeMenu.eyebrow}
                         </div>
@@ -814,7 +814,7 @@ export function UniversityNavbar() {
                         </h3>
                         <div
                           className="mt-3 h-[2px] w-12 rounded-full"
-                          style={{ backgroundColor: "var(--gold-strong)" }}
+                          style={{ backgroundColor: "var(--gold)" }}
                         />
                         <div
                           className="mt-6 rounded-2xl p-5"

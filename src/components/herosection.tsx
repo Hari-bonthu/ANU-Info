@@ -21,6 +21,9 @@ export function HeroSection() {
           style={{ filter: "brightness(1.10) saturate(1.22) contrast(1.04)" }}
         />
 
+        {/* Teal gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-950/80 via-teal-900/40 to-teal-950/80" />
+
         {/* Left-heavy overlay: dark on left (text), clear on right (gate photo) */}
         <div
           className="absolute inset-0"

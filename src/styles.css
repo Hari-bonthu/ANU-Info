@@ -63,67 +63,66 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: oklch(1 0 0); /* Pure White background */
+  --foreground: oklch(0.129 0.042 264.695); /* Deep Navy Blue text */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.337 0.126 23.4); /* Deep Maroon primary */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.96 0.01 265); /* Soft cool navy-gray secondary */
+  --secondary-foreground: oklch(0.337 0.126 23.4); /* Maroon */
+  --muted: oklch(0.96 0.01 265);
+  --muted-foreground: oklch(0.50 0.03 265); /* Slate gray-blue text */
+  --accent: oklch(0.95 0.015 265);
+  --accent-foreground: oklch(0.337 0.126 23.4);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.01 265); /* Soft cool navy-gray border */
+  --input: oklch(0.92 0.01 265);
+  --ring: oklch(0.337 0.126 23.4 / 30%); /* Maroon focus ring */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar-primary: oklch(0.337 0.126 23.4);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.95 0.015 265);
+  --sidebar-accent-foreground: oklch(0.337 0.126 23.4);
+  --sidebar-border: oklch(0.92 0.01 265);
+  --sidebar-ring: oklch(0.337 0.126 23.4 / 30%);
 }
 
 /* University brand palette */
 :root {
-  /* Deep navy brand + warm orange accent (institutional) */
-  --brand: oklch(0.22 0.06 265);
-  --brand-foreground: oklch(0.985 0.005 250);
-  --brand-soft: oklch(0.96 0.01 260);
-  --gold: oklch(0.72 0.18 45);
-  --gold-strong: oklch(0.65 0.19 42);
-  --gold-foreground: oklch(0.22 0.06 265);
-  --utility-bar: oklch(0.18 0.05 265);
-  --utility-bar-foreground: oklch(0.96 0.01 250);
-  --utility-bar-accent: oklch(0.78 0.17 45);
-  --nav-shadow: 0 8px 30px -12px oklch(0 0 0 / 0.18);
-  --mega-shadow: 0 24px 60px -20px oklch(0.22 0.06 265 / 0.25);
+  /* Rich combination of Maroon, Deep Navy, and Gold */
+  --brand: oklch(0.337 0.126 23.4); /* Deep Maroon brand */
+  --brand-foreground: oklch(1 0 0); /* White */
+  --brand-soft: oklch(0.96 0.01 265); /* Soft navy-tinted background */
+  --gold: oklch(0.72 0.18 45); /* Rich Gold (#d4af37) */
+  --gold-foreground: oklch(0.129 0.042 264.695); /* Deep Navy Blue */
+  --utility-bar: oklch(0.129 0.042 264.695); /* Deep Navy utility bar */
+  --utility-bar-foreground: oklch(1 0 0);
+  --utility-bar-accent: oklch(0.72 0.18 45); /* Gold */
+  --nav-shadow: 0 8px 30px -12px oklch(0.129 0.042 264.695 / 0.12);
+  --mega-shadow: 0 24px 60px -20px oklch(0.129 0.042 264.695 / 0.22);
 
-  /* Golden Jubilee palette */
-  --jubilee-gold-1: #ffedd5;
-  --jubilee-gold-2: #fb923c;
-  --jubilee-gold-3: #f97316;
-  --jubilee-gold-4: #9a3412;
-  --jubilee-parchment: #fbf6e7;
-  --jubilee-ink: #2a1d05;
-  --jubilee-gradient: linear-gradient(135deg, #ffedd5 0%, #fb923c 35%, #f97316 70%, #9a3412 100%);
+  /* Golden Jubilee palette - Refined to Gold, Navy, Maroon, and White */
+  --jubilee-gold-1: #fcf8e3; /* Soft warm gold-cream */
+  --jubilee-gold-2: #e6c355; /* Mid gold */
+  --jubilee-gold-3: #d4af37; /* Rich Gold */
+  --jubilee-gold-4: #8a6a14; /* Deep golden bronze */
+  --jubilee-parchment: #ffffff; /* Pure White */
+  --jubilee-ink: #0a192f; /* Navy Blue */
+  --jubilee-gradient: linear-gradient(135deg, #0a192f 0%, #570013 40%, #d4af37 80%, #ffffff 100%);
   --jubilee-shine: linear-gradient(
     115deg,
     transparent 30%,
-    rgba(255, 255, 255, 0.55) 50%,
+    rgba(212, 175, 55, 0.45) 50%,
     transparent 70%
   );
 }
