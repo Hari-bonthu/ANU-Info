@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import BreadcrumbTrail from "@/components/BreadcrumbTrail";
 import { ChevronRight } from "lucide-react";
@@ -25,6 +25,7 @@ export function AdmissionsShell({
   children: React.ReactNode;
 }) {
   const activeLabel = ADMISSIONS_MENU.find((item) => item.id === pageId)?.label ?? "Admissions";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
@@ -151,21 +152,34 @@ export function AdmissionsShell({
 
         <div className="mx-auto max-w-[1400px] px-6 py-8 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[300px_1fr]">
-            <aside>
+            <aside className="w-full lg:w-auto">
               <div className="lg:sticky lg:top-24">
                 <nav className="sidebar-menu" aria-label="Admissions Navigation">
-                  <div className="bg-[var(--parchment-dark)] px-6 py-4 border-b border-[var(--rule)]">
+                  <button
+                    type="button"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="w-full flex items-center justify-between bg-[var(--parchment-dark)] px-6 py-4 border-b border-[var(--rule)] text-left focus:outline-none"
+                  >
                     <h3 className="font-playfair text-lg font-bold text-[var(--ink)]">
                       Admissions Guide
                     </h3>
-                  </div>
-                  <div className="flex flex-col">
+                    <div className="flex items-center gap-2 lg:hidden">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[var(--gold)] bg-white border border-[var(--rule)] px-2.5 py-1 rounded">
+                        {activeLabel}
+                      </span>
+                      <ChevronRight
+                        className={`h-4 w-4 transition-transform duration-200 text-[var(--gold)] ${isMenuOpen ? "rotate-90" : ""}`}
+                      />
+                    </div>
+                  </button>
+                  <div className={`${isMenuOpen ? "flex" : "hidden"} lg:flex flex-col`}>
                     {ADMISSIONS_MENU.map((item) => (
                       <Link
                         key={item.id}
                         to={`/admissions/${item.id}` as any}
                         className="sidebar-link"
                         data-active={pageId === item.id}
+                        onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
                         <ChevronRight className="sidebar-icon h-4 w-4 opacity-50" />
