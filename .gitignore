@@ -22,6 +22,13 @@ dist-ssr
 
 # Vercel
 .vercel/
+.vercel_build_output/
+
+# Environments
+.env
+.env.local
+.env.*.local
+*.env
 
 # Editor directories and files
 .vscode/*
