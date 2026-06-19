@@ -21,23 +21,38 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+      - name: Verify Vercel Secrets
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "::error::VERCEL_TOKEN is not configured in GitHub Secrets. Please add it to enable deployment."
+            exit 1
+          fi
+          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then
+            echo "::error::VERCEL_ORG_ID is not configured in GitHub Secrets. Please add it to enable deployment."
+            exit 1
+          fi
+          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "::error::VERCEL_PROJECT_ID is not configured in GitHub Secrets. Please add it to enable deployment."
+            exit 1
+          fi
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel pull --yes --environment=production
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel build --prod
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy Project to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel deploy --prebuilt --prod
         env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
