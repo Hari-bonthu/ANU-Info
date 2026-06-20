@@ -40,20 +40,21 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="w-full overflow-hidden border-y border-border bg-[oklch(0.98_0.005_250)]">
-        <div className="mx-auto flex max-w-7xl items-center gap-4 px-6 py-2 text-sm">
-          <span className="rounded bg-[oklch(0.72_0.18_145)] px-2 py-0.5 text-xs font-bold text-white">
-            NEW
-          </span>
-          <p className="truncate text-foreground">
-            Advertisement for the post of Research Assistant and Field Investigator for ICSSR funded
-            Major Research Project 2026-2027 &nbsp; || &nbsp; EXAMINATION SCHEDULE OF M.PHIL PART-1
-            / PRE Ph.D EXAMINATION JULY 2026.
-          </p>
+      <main className="w-full bg-background relative">
+        {/* Transparent glassmorphism overlay notification bar */}
+        <div className="absolute top-0 inset-x-0 z-20 overflow-hidden border-b border-white/15 bg-gradient-to-b from-[#050d1a]/70 to-[#050d1a]/30 backdrop-blur-md py-2.5 shadow-sm">
+          <div className="mx-auto flex max-w-7xl items-center gap-4 px-6 text-sm">
+            <span className="rounded bg-[oklch(0.72_0.18_145)] px-2 py-0.5 text-xs font-bold text-white shrink-0">
+              NEW
+            </span>
+            <p className="truncate text-white/90">
+              Advertisement for the post of Research Assistant and Field Investigator for ICSSR funded
+              Major Research Project 2026-2027 &nbsp; || &nbsp; EXAMINATION SCHEDULE OF M.PHIL PART-1
+              / PRE Ph.D EXAMINATION JULY 2026.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <main className="w-full bg-background">
         <HeroSection />
         {/* <BannerCarousel /> */}
         <NotificationsSection />

@@ -25,7 +25,7 @@ export function SiteTopHeader() {
           color: "var(--utility-bar-foreground)",
         }}
       >
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-2.5 lg:px-8">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-1.5 lg:px-8">
           <div className="flex flex-wrap items-center gap-6">
             <a
               href="tel:+918632346114"
@@ -64,7 +64,7 @@ export function SiteTopHeader() {
       </div>
 
       <div className="w-full border-b border-border bg-[oklch(0.97_0.02_85)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-3 text-center">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-6 py-1.5 text-center">
           <Award
             className="hidden h-6 w-6 shrink-0 text-[oklch(0.55_0.15_30)] sm:block"
             aria-hidden
@@ -79,7 +79,7 @@ export function SiteTopHeader() {
       </div>
 
       <div className="w-full bg-background">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 px-6 py-6 md:grid-cols-[auto_1fr_auto]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 px-6 py-4 md:grid-cols-[auto_1fr_auto]">
           <a
             href="/"
             className="mx-auto block shrink-0 transition-transform duration-300 hover:scale-105"
@@ -88,9 +88,9 @@ export function SiteTopHeader() {
             <img
               src={emblem}
               alt="University emblem"
-              width={120}
-              height={120}
-              className="h-24 w-24 object-contain md:h-28 md:w-28"
+              width={96}
+              height={96}
+              className="h-16 w-16 object-contain md:h-24 md:w-24"
             />
           </a>
           <div className="text-center">
@@ -99,10 +99,10 @@ export function SiteTopHeader() {
               className="group inline-block transition-opacity duration-200 hover:opacity-90"
               aria-label="Acharya Nagarjuna University Home"
             >
-              <p className="text-2xl font-bold tracking-wide text-[#d71920] md:text-4xl transition-colors duration-200 group-hover:text-[#b51218]">
+              <p className="text-xl font-bold tracking-wide text-[#d71920] md:text-3xl transition-colors duration-200 group-hover:text-[#b51218]">
                 ఆచార్య నాగార్జున విశ్వవిద్యాలయం
               </p>
-              <h1 className="mt-1 text-2xl font-bold tracking-wide text-[oklch(0.22_0.06_265)] md:text-4xl transition-colors duration-200 group-hover:text-[oklch(0.18_0.06_265)]">
+              <h1 className="mt-0.5 text-xl font-bold tracking-wide text-[oklch(0.22_0.06_265)] md:text-3xl transition-colors duration-200 group-hover:text-[oklch(0.18_0.06_265)]">
                 ACHARYA NAGARJUNA UNIVERSITY
               </h1>
             </a>

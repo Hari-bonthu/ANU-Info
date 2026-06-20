@@ -560,38 +560,38 @@ export function UniversityNavbar() {
 
       {/* Main bar */}
       <div
-        className="border-b"
+        className="border-b relative"
         style={{
           backgroundColor: "var(--utility-bar)",
           borderColor: "oklch(1 0 0 / 0.12)",
           color: "var(--utility-bar-foreground)",
         }}
       >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-6 lg:px-8 relative">
           <a
             href="/"
-            className={`hidden shrink-0 items-center gap-3 py-2 lg:flex transition-all duration-500 ease-in-out origin-left ${
+            className={`hidden shrink-0 items-center gap-3 h-full lg:flex transition-all duration-500 ease-in-out origin-left ${
               isScrolled
                 ? "opacity-100 max-w-[400px] scale-100"
                 : "opacity-0 max-w-0 scale-95 overflow-hidden pointer-events-none"
             }`}
             aria-label="Acharya Nagarjuna University Home"
           >
-            <img src={emblem} alt="ANU emblem" className="h-14 w-14 object-contain shrink-0" />
-            <span className="text-sm font-semibold tracking-wide text-white/95 whitespace-nowrap">
+            <img src={emblem} alt="ANU emblem" className="h-10 w-10 object-contain shrink-0" />
+            <span className={`text-sm font-semibold tracking-wide text-white/95 whitespace-nowrap ${searchOpen ? "hidden xl:inline-block" : "hidden lg:inline-block"}`}>
               Acharya Nagarjuna University
             </span>
           </a>
 
           {/* Desktop nav */}
-          <nav aria-label="Main" className="hidden lg:block flex-1">
-            <ul className="flex items-stretch">
+          <nav aria-label="Main" className="hidden lg:block flex-1 h-full">
+            <ul className="flex items-stretch justify-end h-full">
               {MENU.map((item, i) => {
                 const active = openIndex === i;
                 return (
                   <li
                     key={item.label}
-                    className="relative"
+                    className="relative h-full"
                     onMouseEnter={() => openMenu(i)}
                     onMouseLeave={scheduleClose}
                   >
@@ -601,15 +601,15 @@ export function UniversityNavbar() {
                       aria-expanded={active}
                       onClick={() => setOpenIndex(active ? null : i)}
                       onFocus={() => openMenu(i)}
-                      className="relative flex h-full items-center gap-1 px-4 py-6 text-[13px] font-medium tracking-wide transition-colors hover:text-[color:var(--utility-bar-accent)] focus:outline-none"
+                      className="relative flex h-full items-center gap-1 px-3 xl:px-4 text-[12px] xl:text-[13px] font-medium tracking-wide transition-colors hover:text-[color:var(--utility-bar-accent)] focus:outline-none"
                     >
                       {item.label}
                       <ChevronDown
-                        className="h-3.5 w-3.5 transition-transform"
+                        className="h-3 w-3 transition-transform"
                         style={{ transform: active ? "rotate(180deg)" : "none" }}
                       />
                       <span
-                        className="pointer-events-none absolute bottom-3 left-4 right-4 h-[2px] origin-left rounded-full transition-transform duration-200"
+                        className="pointer-events-none absolute bottom-1.5 left-3 right-3 xl:left-4 xl:right-4 h-[2px] origin-left rounded-full transition-transform duration-200"
                         style={{
                           backgroundColor: "var(--primary)",
                           transform: active ? "scaleX(1)" : "scaleX(0)",
@@ -622,153 +622,134 @@ export function UniversityNavbar() {
             </ul>
           </nav>
 
-          {/* Right actions */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <button
-              type="button"
-              aria-label="Search"
-              onClick={() =>
-                setSearchOpen((v) => {
-                  if (v) setSearchQuery("");
-                  return !v;
-                })
-              }
-              className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/10"
-            >
-              <Search className="h-4 w-4" />
-            </button>
-          </div>
-
           {/* Mobile toggle */}
           <a
             href="/"
-            className={`flex items-center gap-2 py-2 lg:hidden transition-all duration-500 ease-in-out origin-left ${
+            className={`flex items-center gap-2 lg:hidden transition-all duration-500 ease-in-out origin-left ${
               isScrolled
                 ? "opacity-100 max-w-[300px] scale-100"
                 : "opacity-0 max-w-0 scale-95 overflow-hidden pointer-events-none"
             }`}
             aria-label="Acharya Nagarjuna University Home"
           >
-            <img src={emblem} alt="ANU emblem" className="h-13 w-13 object-contain shrink-0" />
-            <span className="text-sm font-bold tracking-[0.05em] text-[color:var(--utility-bar-accent)] whitespace-nowrap">
+            <img src={emblem} alt="ANU emblem" className="h-10 w-10 object-contain shrink-0" />
+            <span className={`text-[11px] xs:text-xs sm:text-sm font-bold tracking-[0.05em] text-[color:var(--utility-bar-accent)] whitespace-nowrap ${searchOpen ? "hidden md:inline-block" : "inline-block"}`}>
               Acharya Nagarjuna University
             </span>
           </a>
 
-          <button
-            type="button"
-            className="-mr-2 p-2 lg:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
-          >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
+          {/* Actions & toggles */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {!searchOpen && (
+              <>
+                <span className="h-5 w-[1px] bg-white/20" aria-hidden />
+                <button
+                  type="button"
+                  aria-label="Open search"
+                  onClick={() => setSearchOpen(true)}
+                  className="p-1.5 text-white/90 hover:bg-white/10 rounded-full transition-colors shrink-0"
+                >
+                  <Search className="h-4.5 w-4.5" />
+                </button>
+              </>
+            )}
 
-        {/* Search panel */}
-        {searchOpen && (
-          <div className="border-t border-border bg-background shadow-lg max-h-[60vh] overflow-y-auto transition-all duration-300">
-            <div className="mx-auto max-w-[1400px] px-8 py-4">
-              <div className="flex items-center gap-3 border-b border-border pb-3">
-                <Search className="h-4 w-4 text-muted-foreground" />
+            <button
+              type="button"
+              className="-mr-2 p-2 lg:hidden text-white/90 hover:bg-white/10 rounded-full"
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              onClick={() => {
+                setMobileOpen((v) => !v);
+                setSearchOpen(false); // Close search when opening mobile drawer
+              }}
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+
+          {/* Absolute search overlay to resolve overflow without changing the navbar design */}
+          {searchOpen && (
+            <div className="absolute right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 flex items-center gap-2 bg-[color:var(--utility-bar)] pl-3 pr-1 py-1 rounded-md shadow-lg border border-white/10">
+              <div className="relative flex items-center">
+                <Search className="absolute left-2.5 h-3.5 w-3.5 text-white/60 pointer-events-none" />
                 <input
                   autoFocus
                   type="search"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search programs, departments, notifications…"
-                  className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-                />
-                <button
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSearchOpen(false);
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
                   }}
-                  className="text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground"
-                >
-                  Close
-                </button>
+                  placeholder="Search..."
+                  className="w-32 xs:w-40 sm:w-48 md:w-56 lg:w-40 xl:w-52 pl-8 pr-2.5 py-1 text-xs sm:text-sm search-glass-input"
+                />
               </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery("");
+                  setSearchOpen(false);
+                }}
+                className="text-white/80 hover:text-white p-1.5 transition-colors shrink-0"
+                aria-label="Close search"
+              >
+                <X className="h-4.5 w-4.5" />
+              </button>
+            </div>
+          )}
+        </div>
 
-              {/* Results */}
-              <div className="mt-4">
-                {searchQuery.trim() === "" ? (
-                  <div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                      Popular Links
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {[
-                        { label: "Fee Structure", href: "/admissions/fee-structure" },
-                        { label: "UG Programs", href: "/programs/ug-programs" },
-                        { label: "Hostels", href: "/campus-life/hostel" },
-                        {
-                          label: "Exam Notifications",
-                          href: "/student-services/exam-notifications",
-                        },
-                        { label: "Results", href: "/student-services/results" },
-                        { label: "R&D Cell", href: "/research/r-and-d-cell" },
-                      ].map((item) => (
+      {/* Search dropdown panel */}
+      {searchOpen && searchQuery.trim() !== "" && (
+        <div className="absolute left-0 right-0 top-full z-50 border-t border-border bg-background text-foreground shadow-lg max-h-[60vh] overflow-y-auto transition-all duration-300">
+          <div className="mx-auto max-w-[1400px] px-8 py-4">
+            {/* Results */}
+            <div>
+              {filteredResults.length > 0 ? (
+                <div className="space-y-2">
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                    Matches Found ({filteredResults.length})
+                  </div>
+                  <ul className="divide-y divide-border/60">
+                    {filteredResults.slice(0, 10).map((res) => (
+                      <li key={`${res.category}-${res.label}-${res.href}`} className="py-2.5">
                         <a
-                          key={item.label}
-                          href={item.href}
+                          href={res.href}
                           onClick={() => {
                             setSearchQuery("");
                             setSearchOpen(false);
                           }}
-                          className="rounded-full bg-muted/60 px-3.5 py-1.5 text-xs text-foreground/80 hover:bg-muted hover:text-foreground transition"
+                          className="flex items-center justify-between group"
                         >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ) : filteredResults.length > 0 ? (
-                  <div className="space-y-2">
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                      Matches Found ({filteredResults.length})
-                    </div>
-                    <ul className="divide-y divide-border/60">
-                      {filteredResults.slice(0, 10).map((res) => (
-                        <li key={`${res.category}-${res.label}-${res.href}`} className="py-2.5">
-                          <a
-                            href={res.href}
-                            onClick={() => {
-                              setSearchQuery("");
-                              setSearchOpen(false);
-                            }}
-                            className="flex items-center justify-between group"
-                          >
-                            <div>
-                              <span className="text-sm font-semibold text-foreground group-hover:text-[color:var(--brand)] transition-colors">
-                                {res.label}
-                              </span>
-                              {res.subtitle && (
-                                <span className="ml-2 text-xs text-muted-foreground">
-                                  in {res.subtitle}
-                                </span>
-                              )}
-                            </div>
-                            <span className="text-xs uppercase tracking-wider text-muted-foreground bg-muted/40 px-2 py-0.5 rounded group-hover:bg-brand/10 group-hover:text-brand transition-colors">
-                              {res.category}
+                          <div>
+                            <span className="text-sm font-semibold text-foreground group-hover:text-[color:var(--brand)] transition-colors">
+                              {res.label}
                             </span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="py-6 text-center text-sm text-muted-foreground">
-                    No results found for{" "}
-                    <span className="font-semibold text-foreground">"{searchQuery}"</span>. Try
-                    searching for admissions, exam, programs, or cell.
-                  </div>
-                )}
-              </div>
+                            {res.subtitle && (
+                              <span className="ml-2 text-xs text-muted-foreground">
+                                in {res.subtitle}
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-xs uppercase tracking-wider text-muted-foreground bg-muted/40 px-2 py-0.5 rounded group-hover:bg-brand/10 group-hover:text-brand transition-colors">
+                            {res.category}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="py-6 text-center text-sm text-muted-foreground">
+                  No results found for{" "}
+                  <span className="font-semibold text-foreground">"{searchQuery}"</span>. Try
+                  searching for admissions, exam, programs, or cell.
+                </div>
+              )}
             </div>
           </div>
-        )}
+        </div>
+      )}
 
         {/* Mega menu panel (desktop) */}
         {openIndex !== null && (

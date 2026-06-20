@@ -19,59 +19,59 @@ export function GoldenJubileeScroll({ variant = "fixed" }: { variant?: "fixed" |
 function ScrollBadge() {
   return (
     <div
-      className="relative flex h-16 items-center gap-2 rounded-full pl-2 pr-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.05] md:h-20 md:pl-3 md:pr-5"
+      className="relative flex h-12 items-center gap-1.5 rounded-full pl-1.5 pr-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.05] md:h-16 md:pl-2.5 md:pr-4"
       style={{
         background:
           "linear-gradient(135deg,#fff7c0 0%,#f5d060 28%,#d4af37 54%,#b88916 78%,#7a4f05 100%)",
         boxShadow:
-          "0 14px 36px -10px rgba(212,175,55,0.9), 0 0 0 2px rgba(255,244,194,0.75), inset 0 2px 0 rgba(255,255,255,0.75), inset 0 -3px 8px rgba(80,55,5,0.3)",
+          "0 10px 28px -8px rgba(212,175,55,0.9), 0 0 0 2px rgba(255,244,194,0.75), inset 0 2px 0 rgba(255,255,255,0.75), inset 0 -3px 8px rgba(80,55,5,0.3)",
         animation:
           "jubilee-pulse-glow 3.2s ease-in-out infinite, jubilee-float 4s ease-in-out infinite",
       }}
     >
       <style>{`
         @keyframes jubilee-pulse-glow {
-          0%,100%{box-shadow:0 14px 36px -10px rgba(212,175,55,0.9),0 0 0 2px rgba(255,244,194,0.75),inset 0 2px 0 rgba(255,255,255,0.75),inset 0 -3px 8px rgba(80,55,5,0.3)}
-          50%{box-shadow:0 18px 46px -8px rgba(245,208,96,1),0 0 0 3px rgba(255,247,192,0.95),inset 0 2px 0 rgba(255,255,255,0.86),inset 0 -3px 8px rgba(80,55,5,0.36)}
+          0%,100%{box-shadow:0 10px 28px -8px rgba(212,175,55,0.9),0 0 0 2px rgba(255,244,194,0.75),inset 0 2px 0 rgba(255,255,255,0.75),inset 0 -3px 8px rgba(80,55,5,0.3)}
+          50%{box-shadow:0 14px 36px -6px rgba(245,208,96,1),0 0 0 3px rgba(255,247,192,0.95),inset 0 2px 0 rgba(255,255,255,0.86),inset 0 -3px 8px rgba(80,55,5,0.36)}
         }
         @keyframes jubilee-float {
-          0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)}
+          0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)}
         }
         @keyframes jubilee-shine {
           0%{left:-60%} 100%{left:130%}
         }
       `}</style>
 
-      <RodCurl side="left" height={48} />
+      <RodCurl side="left" height={36} />
 
-      <span className="flex flex-col items-center px-1 leading-none">
+      <span className="flex flex-col items-center px-0.5 leading-none">
         <span
-          className="text-[9px] font-semibold uppercase tracking-[0.3em] md:text-[10px]"
+          className="text-[7.5px] font-semibold uppercase tracking-[0.25em] md:text-[9px]"
           style={{ color: "#4a3206", textShadow: "0 1px 0 rgba(255,255,255,0.58)" }}
         >
           Celebrating
         </span>
         <span
-          className="text-xl font-extrabold leading-none md:text-2xl"
+          className="text-base font-extrabold leading-none md:text-xl"
           style={{ color: "#241600", textShadow: "0 1px 0 rgba(255,255,255,0.58)" }}
         >
           50
         </span>
         <span
-          className="text-[10px] font-bold tracking-[0.25em] md:text-[11px]"
+          className="text-[8px] font-bold tracking-[0.2em] md:text-[9.5px]"
           style={{ color: "#332204", textShadow: "0 1px 0 rgba(255,255,255,0.5)" }}
         >
           GOLDEN JUBILEE
         </span>
         <span
-          className="text-[8px] font-medium tracking-[0.35em] md:text-[9px]"
+          className="text-[6.5px] font-medium tracking-[0.3em] md:text-[8px]"
           style={{ color: "#4a3206" }}
         >
           1976 - 2026
         </span>
       </span>
 
-      <RodCurl side="right" height={48} />
+      <RodCurl side="right" height={36} />
 
       <span
         aria-hidden
