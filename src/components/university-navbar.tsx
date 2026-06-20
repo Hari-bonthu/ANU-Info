@@ -586,14 +586,6 @@ export function UniversityNavbar() {
           {/* Desktop nav */}
           <nav aria-label="Main" className="hidden lg:block flex-1">
             <ul className="flex items-stretch">
-              <li className="relative">
-                <a
-                  href="/"
-                  className="relative flex h-full items-center gap-1 px-4 py-6 text-[13px] font-medium tracking-wide transition-colors hover:text-[color:var(--utility-bar-accent)] focus:outline-none"
-                >
-                  Home
-                </a>
-              </li>
               {MENU.map((item, i) => {
                 const active = openIndex === i;
                 return (
@@ -893,14 +885,6 @@ export function UniversityNavbar() {
         <div className="border-t border-white/10 bg-background text-foreground lg:hidden">
           <nav aria-label="Mobile" className="max-h-[80vh] overflow-y-auto">
             <ul className="divide-y divide-border">
-              <li>
-                <a
-                  href="/"
-                  className="block px-4 py-3 text-sm font-medium text-foreground/90 hover:text-foreground"
-                >
-                  Home
-                </a>
-              </li>
               {MENU.map((item, i) => (
                 <li key={item.label}>
                   <button
