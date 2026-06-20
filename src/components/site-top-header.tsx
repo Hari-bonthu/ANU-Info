@@ -80,20 +80,32 @@ export function SiteTopHeader() {
 
       <div className="w-full bg-background">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 px-6 py-6 md:grid-cols-[auto_1fr_auto]">
-          <img
-            src={emblem}
-            alt="University emblem"
-            width={120}
-            height={120}
-            className="mx-auto h-24 w-24 object-contain md:h-28 md:w-28"
-          />
+          <a
+            href="/"
+            className="mx-auto block shrink-0 transition-transform duration-300 hover:scale-105"
+            aria-label="Acharya Nagarjuna University Home"
+          >
+            <img
+              src={emblem}
+              alt="University emblem"
+              width={120}
+              height={120}
+              className="h-24 w-24 object-contain md:h-28 md:w-28"
+            />
+          </a>
           <div className="text-center">
-            <p className="text-2xl font-bold tracking-wide text-[#d71920] md:text-4xl">
-              ఆచార్య నాగార్జున విశ్వవిద్యాలయం
-            </p>
-            <h1 className="mt-1 text-2xl font-bold tracking-wide text-[oklch(0.22_0.06_265)] md:text-4xl">
-              ACHARYA NAGARJUNA UNIVERSITY
-            </h1>
+            <a
+              href="/"
+              className="group inline-block transition-opacity duration-200 hover:opacity-90"
+              aria-label="Acharya Nagarjuna University Home"
+            >
+              <p className="text-2xl font-bold tracking-wide text-[#d71920] md:text-4xl transition-colors duration-200 group-hover:text-[#b51218]">
+                ఆచార్య నాగార్జున విశ్వవిద్యాలయం
+              </p>
+              <h1 className="mt-1 text-2xl font-bold tracking-wide text-[oklch(0.22_0.06_265)] md:text-4xl transition-colors duration-200 group-hover:text-[oklch(0.18_0.06_265)]">
+                ACHARYA NAGARJUNA UNIVERSITY
+              </h1>
+            </a>
           </div>
           <GoldenJubileeScroll variant="inline" />
         </div>
